@@ -36,6 +36,7 @@ jobs:
         trustcert: true
         debug: 9
         mode: rapid
+        project: ktok-github-pr
         sarif: blackduck-sarif.json
       env:
         GITHUB_TOKEN: ${{ github.token }}
