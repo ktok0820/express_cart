@@ -22,6 +22,7 @@ let handlebars = require('express-handlebars');
 const Ajv = require('ajv');
 const ajv = new Ajv({ useDefaults: true });
 
+// test
 // get config
 const config = common.getConfig();
 
