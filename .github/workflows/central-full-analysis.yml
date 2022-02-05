@@ -1,4 +1,4 @@
-name: Coverity&BD with self-hosted runner
+name: Coverity & BlackDuck Full Analysis
 
 on: 
   workflow_dispatch:
