@@ -1,0 +1,28 @@
+name: Coverity&BD with self-hosted runner
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  yes-if:
+    runs-on: [self-hosted, linux, X64]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Coverity Capture 
+        run: cov-capture --dir ../idir --source-dir .
+      - name: Coverity Analyze
+        run: cov-analyze --dir ../idir cov-analyze --dir idir --all --webapp-security --distrust-all
+#      - name: Coverity Commit
+#        run: |
+#          CC_server='https://coverity.sigjp.com/'
+#          cov-commit-defects --dir idir --stream github-actions-test-zlib --url ${CC_server} --user coverity --password ${{secrets.SECRET_COV_PASSWORD}}
+      - name: BlackDuck
+        run: | 
+          hub_server='https://testing.blackduck.synopsys.com'
+          project_name='ktok-express-cart'
+          scan_source_path='.'
+          project_version_name='1.0'
+          user='ktok'
+          bash <(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=${hub_server} --blackduck.api.token=${{secrets.BD_TOKEN}} --detect.project.name=${project_name} --detect.project.name=${project_version_name} detect.source.path=${scan_source_path}
+        
