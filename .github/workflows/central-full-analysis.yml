@@ -12,7 +12,7 @@ jobs:
       - name: Coverity Capture 
         run: cov-capture --dir ../idir --source-dir .
       - name: Coverity Analyze
-        run: cov-analyze --dir ../idir cov-analyze --dir idir --all --webapp-security --distrust-all
+        run: cov-analyze --dir ../idir cov-analyze --all --webapp-security --distrust-all
 #      - name: Coverity Commit
 #        run: |
 #          CC_server='https://coverity.sigjp.com/'
