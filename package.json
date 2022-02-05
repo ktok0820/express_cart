@@ -52,7 +52,7 @@
     "strip-bom": "^3.0.0",
     "stripe": "^5.10.0",
     "uglifycss": "0.0.27",
-    "underscore": "^1.9.1"
+    "underscore": "^1.13.2"
   },
   "devDependencies": {
     "ava": "^2.4.0",
@@ -93,4 +93,3 @@
     "url": "https://github.com/mrvautin/expressCart/issues"
   }
 }
-
