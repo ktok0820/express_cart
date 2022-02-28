@@ -1,8 +1,9 @@
 name: rapidscan
 on:
   pull_request:
-    branches:
-      - main
+    types: [review_requested]
+#    branches:
+#      - main
 #  push:
 
 jobs:
